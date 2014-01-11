@@ -3,8 +3,11 @@ package ms.cloudtea.HelloReminder.manager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.net.Uri;
-import android.provider.CalendarContract;
-import android.support.v4.app.FragmentActivity;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 import ms.cloudtea.HelloReminder.app.BaseActivity;
 import ms.cloudtea.HelloReminder.calendar.IEventColumns;
 import ms.cloudtea.HelloReminder.calendar.IReminderColumns;
@@ -12,10 +15,6 @@ import ms.cloudtea.HelloReminder.task.BaseAsyncTask;
 import ms.cloudtea.HelloReminder.task.IAsyncCallback;
 import ms.cloudtea.HelloReminder.util.DateUtils;
 import ms.cloudtea.HelloReminder.util.Tracer;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 
 /**
  * Created by Shahab on 1/11/14.
@@ -33,9 +32,12 @@ public class EventManager {
 
                 long startMillis = 0;
                 long endMillis = 0;
+
                 Calendar beginTime = Calendar.getInstance();
                 beginTime.setTimeInMillis(date.getTime());
+                beginTime.add(Calendar.MINUTE, 2);
                 startMillis = beginTime.getTimeInMillis();
+
                 Calendar endTime = Calendar.getInstance();
                 endTime.setTimeInMillis(startMillis);
                 endTime.add(Calendar.HOUR, 1);
@@ -64,7 +66,7 @@ public class EventManager {
                 // now we are ready to add reminder to this event
                 values.clear();
 
-                values.put(IReminderColumns.MINUTES, 2);
+                values.put(IReminderColumns.MINUTES, 1);
                 values.put(IReminderColumns.EVENT_ID, eventID);
                 values.put(IReminderColumns.METHOD, IReminderColumns.METHOD_ALERT);
 

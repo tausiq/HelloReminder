@@ -1,21 +1,22 @@
-package ms.cloudtea.HelloReminder;
+package ms.cloudtea.HelloReminder.ui;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import ms.cloudtea.HelloReminder.app.BaseActivity;
-import ms.cloudtea.HelloReminder.manager.EventManager;
-import ms.cloudtea.HelloReminder.model.CalendarModel;
-import ms.cloudtea.HelloReminder.task.IAsyncCallback;
-import ms.cloudtea.HelloReminder.util.DialogBox;
-import ms.cloudtea.HelloReminder.manager.PrefManager;
-import ms.cloudtea.HelloReminder.util.UIUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import ms.cloudtea.HelloReminder.R;
+import ms.cloudtea.HelloReminder.app.BaseActivity;
+import ms.cloudtea.HelloReminder.manager.EventManager;
+import ms.cloudtea.HelloReminder.manager.PrefManager;
+import ms.cloudtea.HelloReminder.model.CalendarModel;
+import ms.cloudtea.HelloReminder.task.IAsyncCallback;
+import ms.cloudtea.HelloReminder.util.DialogBox;
+import ms.cloudtea.HelloReminder.util.UIUtils;
 
 public class HomeActivity extends BaseActivity implements UIUtils.CalendarChooserDialog.OnCalendarChooseListener {
     /**
@@ -105,7 +106,7 @@ public class HomeActivity extends BaseActivity implements UIUtils.CalendarChoose
         manager.createReminder(this, new Date(), new IAsyncCallback() {
             @Override
             public void onComplete(Object data) {
-                DialogBox.showAlert(HomeActivity.this, "", "Reminder set after 2 minutes from now");
+                DialogBox.showAlert(HomeActivity.this, "", "Reminder will fire after 1 minutes from now");
             }
         });
     }
