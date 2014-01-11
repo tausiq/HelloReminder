@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HelloReminder</string>
+
+    <!-- Error Messages -->
+    <string name="err_no_calendar_found">No Calendar found</string>
+    <string name="title_calendar_chooser">Choose default calendar</string>
+    <string name="please_wait">Please wait</string>
+</resources>
